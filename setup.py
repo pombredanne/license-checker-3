@@ -6,7 +6,7 @@ import licensechecker
 setup(
     name='licensechecker',
     version=licensechecker.__version__,
-    description='License checker for open source project',
+    description=licensechecker.__description__,
     long_description='', # FIXME: Convert README.md to README.rst
     url='https://github.com/czchen/license-checker',
     license='MIT',
