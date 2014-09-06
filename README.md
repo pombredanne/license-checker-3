@@ -6,8 +6,8 @@ file in particular project.
 
 # Feature Request & Issue
 
-Please report feature request & issue to <https://github.com/czchen/license-checker/issues>
+Please report feature request & issue to <https://github.com/czchen/license-checker/issues>.
 
 # License
 
-This program is licensed under [MIT license](http://opensource.org/licenses/MIT)
+This program is licensed under [MIT license](http://opensource.org/licenses/MIT).
