@@ -28,7 +28,7 @@ _COPYRIGHT = re.compile(
     r'''
         copyright\s+
         (?:(?:\(c\)|©)\s+)?  # (c) or ©
-        (?:[\d\-\,\s]+\s+)?  # year
+        (?:[\d\-\,\s]+\s+)   # year
         .*                   # anything else
     '''
     ,
@@ -39,7 +39,7 @@ _COPYRIGHT = re.compile(
 def get_copyright(buf):
     copyright = []
 
-    for line in buf:
+    for line in buf.split('\n'):
         m = _COPYRIGHT.search(line)
         if m is not None:
             copyright.append(m.group(0).strip())
