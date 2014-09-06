@@ -1,4 +1,5 @@
 # License Checker
+[![Build Status](https://travis-ci.org/czchen/license-checker.svg?branch=master)](https://travis-ci.org/czchen/license-checker)
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 This project finds out the license and copyright information of every source
