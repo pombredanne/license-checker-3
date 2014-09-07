@@ -44,5 +44,4 @@ def get_copyright(buf):
         if m is not None:
             copyright.append(m.group(0).strip())
 
-
     return copyright
