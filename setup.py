@@ -7,6 +7,8 @@ setup(
     name='licensechecker',
     version=licensechecker.__version__,
     description=licensechecker.__description__,
+    author='ChangZhuo Chen (陳昌倬)',
+    author_email='czchen@gmail.com',
     long_description='', # FIXME: Convert README.md to README.rst
     url='https://github.com/czchen/license-checker',
     license='MIT',
