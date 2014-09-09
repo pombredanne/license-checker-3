@@ -24,5 +24,8 @@ setup(
         'console_scripts': [
             'license-checker = licensechecker.console:main',
         ]
-    }
+    },
+    package_data={
+        'licensechecker': ['data/*'],
+    },
 )
