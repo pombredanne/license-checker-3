@@ -23,16 +23,60 @@
 # THE SOFTWARE.
 
 import argparse
+import os
 
 import licensechecker
 
+_BUF_LEN = 1024
+
 def get_args():
     parser = argparse.ArgumentParser(description=licensechecker.__description__)
+
+    parser.add_argument('path', nargs='+', help='source code path')
+
     return parser.parse_args()
+
+
+def generate_file_list(path):
+    file_list = []
+
+    for item in path:
+        if os.path.isfile(item):
+            file_list.append(item)
+        elif os.path.isdir(item):
+
+            for (dirpath, dirnames, filenames) in os.walk(item):
+                file_list.extend(map(lambda x: os.path.join(dirpath, x), filenames))
+
+    return file_list
+
+
+def output(file_, copyright, license):
+    print('Files: {}'.format(file_))
+
+    print('Copyright:')
+    for item in copyright:
+        print(' {}'.format(item))
+
+    license = list(license)
+    license = ' or '.join(license)
+    print('License: {}'.format(license))
+
+    print('')
 
 
 def main():
     args = get_args()
+
+    file_list = generate_file_list(args.path)
+
+    for file_ in file_list:
+        with open(file_, 'r') as fd:
+            buf = fd.read(_BUF_LEN)
+            copyright = licensechecker.get_copyright(buf)
+            license = licensechecker.get_license(buf)
+
+            output(file_=file_, copyright=copyright, license=license)
 
 
 if __name__ == '__main__':
