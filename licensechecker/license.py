@@ -27,7 +27,11 @@ import re
 
 import yaml
 
+def get_keyword_regex(keyword):
+    return re.compile(r'[\n\s*#]+'.join(keyword.split(' ')))
+
 _LICENSE = {}
+_ANY_LATER_VERSION = get_keyword_regex('any later version')
 
 def get_license(buf):
     ret = set()
@@ -45,11 +49,13 @@ def get_license(buf):
             ret = ret.difference(license['supersede'])
             supersede = supersede.union((license['supersede']))
 
+    if _ANY_LATER_VERSION.search(buf):
+        if len(ret) == 1:
+            ret = set(map(lambda x: x + '+', ret))
+        else:
+            ret = set(map(lambda x: x + '+?', ret))
+
     return ret
-
-
-def get_keyword_regex(keyword):
-    return re.compile(r'[\n\s*#]+'.join(keyword.split(' ')))
 
 
 def load_license_config():

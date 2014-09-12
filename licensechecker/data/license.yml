@@ -2,14 +2,6 @@
     keywords:
     -   'The MIT License'
 
--   name: 'GPL-2+'
-    keywords:
-    -   'GNU General Public License'
-    -   'version 2'
-    -   'any later version'
-    supersede:
-    -   'GPL-2'
-
 -   name: 'GPL-2'
     keywords:
     -   'GNU General Public License'
